@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "atmega328p for Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/lib/avr/include/**"
+            ],
+            "defines": [
+                "__AVR_ATmega328P__"
+            ],
+            "compilerPath": "/usr/bin/avr-gcc",
+            "cStandard": "c99",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": [
+                "-mmcu=atmega328p",
+                "-DF_CPU=1000000UL"
+            ]
+        }
+    ],
+    "version": 4
+}
