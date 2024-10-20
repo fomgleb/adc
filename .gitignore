@@ -1,2 +1,4 @@
 build/
 .vscode/*.json
+proteus/*.workspace
+proteus/*.pdsbak
