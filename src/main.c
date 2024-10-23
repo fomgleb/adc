@@ -21,16 +21,16 @@ create_display() {
     display_t display = {
         .shifter =
             {
-                .shift_clock_pin = pin_create_output_pin(&DDRB, &PORTB, 0),
-                .serial_data_pin = pin_create_output_pin(&DDRB, &PORTB, 1),
-                .storage_clock_pin = pin_create_output_pin(&DDRB, &PORTB, 2),
-                .reset_pin = pin_create_output_pin(&DDRB, &PORTB, 3),
-                .output_enable_pin = pin_create_output_pin(&DDRB, &PORTB, 4),
+                .shift_clock_leg = leg_create_output_leg(&DDRB, &PORTB, 0),
+                .serial_data_leg = leg_create_output_leg(&DDRB, &PORTB, 1),
+                .storage_clock_leg = leg_create_output_leg(&DDRB, &PORTB, 2),
+                .reset_leg = leg_create_output_leg(&DDRB, &PORTB, 3),
+                .output_enable_leg = leg_create_output_leg(&DDRB, &PORTB, 4),
             },
-        .enable_first_digit = pin_create_output_pin(&DDRC, &PORTC, 2),
-        .enable_second_digit = pin_create_output_pin(&DDRC, &PORTC, 3),
-        .enable_third_digit = pin_create_output_pin(&DDRC, &PORTC, 4),
-        .enable_fourth_digit = pin_create_output_pin(&DDRC, &PORTC, 5),
+        .enable_first_digit = leg_create_output_leg(&DDRC, &PORTC, 2),
+        .enable_second_digit = leg_create_output_leg(&DDRC, &PORTC, 3),
+        .enable_third_digit = leg_create_output_leg(&DDRC, &PORTC, 4),
+        .enable_fourth_digit = leg_create_output_leg(&DDRC, &PORTC, 5),
     };
     dl_init_display(&display);
     return display;

@@ -5,10 +5,10 @@
 void
 dl_init_display(display_t* display) {
     sh_init_shifter(&display->shifter);
-    pin_drop(&display->enable_first_digit);
-    pin_drop(&display->enable_second_digit);
-    pin_drop(&display->enable_third_digit);
-    pin_drop(&display->enable_fourth_digit);
+    leg_drop(&display->enable_first_digit);
+    leg_drop(&display->enable_second_digit);
+    leg_drop(&display->enable_third_digit);
+    leg_drop(&display->enable_fourth_digit);
 }
 
 static void
@@ -16,211 +16,211 @@ render_digit(display_t* display, DL_DIGIT_VALUE digit_value, bool place_dot) {
     switch (digit_value) {
         case DL_DIGIT_VALUE_0: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_set(&display->shifter.serial_data_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_set(&display->shifter.serial_data_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_1: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_set(&display->shifter.serial_data_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_set(&display->shifter.serial_data_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_2: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_3: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_4: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_5: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_6: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_7: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_set(&display->shifter.serial_data_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_set(&display->shifter.serial_data_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_8: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         case DL_DIGIT_VALUE_9: {
             if (place_dot) {
-                pin_drop(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
+                leg_drop(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
             } else {
-                pin_set(&display->shifter.serial_data_pin);
-                pin_set_drop(&display->shifter.shift_clock_pin);
-                pin_drop(&display->shifter.serial_data_pin);
+                leg_set(&display->shifter.serial_data_leg);
+                leg_set_drop(&display->shifter.shift_clock_leg);
+                leg_drop(&display->shifter.serial_data_leg);
             }
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_drop(&display->shifter.serial_data_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
-            pin_set_drop(&display->shifter.shift_clock_pin);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_drop(&display->shifter.serial_data_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
+            leg_set_drop(&display->shifter.shift_clock_leg);
             break;
         }
         default: break;
     }
 }
 
-static output_pin_t*
-get_pin_by_digit_index(display_t* display, DL_DIGIT_INDEX digit) {
+static output_leg_t*
+get_leg_by_digit_index(display_t* display, DL_DIGIT_INDEX digit) {
     switch (digit) {
         case DL_DIGIT_INDEX_1: return &display->enable_first_digit; break;
         case DL_DIGIT_INDEX_2: return &display->enable_second_digit; break;
@@ -232,12 +232,12 @@ get_pin_by_digit_index(display_t* display, DL_DIGIT_INDEX digit) {
 
 void
 dl_render_digit(display_t* display, DL_DIGIT_VALUE digit_value, DL_DIGIT_INDEX digit_index, bool place_dot) {
-    output_pin_t* digit_index_pin = get_pin_by_digit_index(display, digit_index);
+    output_leg_t* digit_index_leg = get_leg_by_digit_index(display, digit_index);
     render_digit(display, digit_value, place_dot);
-    pin_set_drop(&display->shifter.storage_clock_pin);
-    pin_set(digit_index_pin);
+    leg_set_drop(&display->shifter.storage_clock_leg);
+    leg_set(digit_index_leg);
     _delay_ms(1);
-    pin_drop(digit_index_pin);
+    leg_drop(digit_index_leg);
 }
 
 void

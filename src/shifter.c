@@ -2,9 +2,9 @@
 
 void
 sh_init_shifter(shifter_t* shifter) {
-    pin_drop(&shifter->shift_clock_pin);
-    pin_drop(&shifter->serial_data_pin);
-    pin_drop(&shifter->storage_clock_pin);
-    pin_set(&shifter->reset_pin);
-    pin_drop(&shifter->output_enable_pin);
+    leg_drop(&shifter->shift_clock_leg);
+    leg_drop(&shifter->serial_data_leg);
+    leg_drop(&shifter->storage_clock_leg);
+    leg_set(&shifter->reset_leg);
+    leg_drop(&shifter->output_enable_leg);
 }

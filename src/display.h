@@ -8,10 +8,10 @@
 
 typedef struct {
     shifter_t shifter;
-    output_pin_t enable_first_digit;
-    output_pin_t enable_second_digit;
-    output_pin_t enable_third_digit;
-    output_pin_t enable_fourth_digit;
+    output_leg_t enable_first_digit;
+    output_leg_t enable_second_digit;
+    output_leg_t enable_third_digit;
+    output_leg_t enable_fourth_digit;
 } display_t;
 
 typedef enum {
