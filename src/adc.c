@@ -4,8 +4,8 @@
 
 void
 adc_init(ADC_ANALOGUE_CHANNEL adc_channel) {
-    ADMUX |= (1 << MUX1) | (1 << MUX2);
-    ADCSRA |= (1 << ADEN) | (0x07 << ADPS0);
+    ADMUX |= adc_channel;
+    ADCSRA |= (1 << ADEN) | (1 << ADPS0) | (1 << ADPS1) | (1 << ADPS2);
 }
 
 uint16_t
