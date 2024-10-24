@@ -1,5 +1,6 @@
 #include <avr/io.h>
 #include "adc.h"
+#include "button.h"
 #include "display.h"
 
 static display_t create_display();
@@ -9,8 +10,13 @@ main() {
     adc_init(ADC_ANALOGUE_CHANNEL_6);
 
     display_t display = create_display();
+    const button_t button = btn_create(&DDRD, &PORTD, &PIND, 0);
 
     while (true) {
+        if (btn_is_pressed(&button)) {
+            continue;
+        }
+
         float converted_adc_value = adc_get_converted_value();
         dl_render_positive_float_number(&display, converted_adc_value);
     }
