@@ -5,15 +5,15 @@
 #include "boolean.h"
 
 typedef struct {
-    const volatile uint8_t* ddr;
-    volatile uint8_t* port;
-    volatile uint8_t leg_index;
+    const volatile uint8_t* const ddr;
+    volatile uint8_t* const port;
+    const volatile uint8_t leg_index;
 } output_leg_t;
 
 typedef struct {
-    const volatile uint8_t* ddr;
-    const volatile uint8_t* port;
-    const volatile uint8_t* pin;
+    const volatile uint8_t* const ddr;
+    const volatile uint8_t* const port;
+    const volatile uint8_t* const pin;
     const volatile uint8_t leg_index;
 } input_leg_t;
 
