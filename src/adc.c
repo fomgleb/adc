@@ -1,7 +1,5 @@
 #include "adc.h"
 
-#include <avr/io.h>
-
 void
 adc_init(ADC_ANALOGUE_CHANNEL adc_channel) {
     ADMUX |= adc_channel;
