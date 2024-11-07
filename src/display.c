@@ -254,16 +254,16 @@ dl_render_positive_float_number(display_t* display, float float_number) {
     uint32_t integer_number;
     DL_DIGIT_INDEX dot_index;
     if (float_number >= 1000) {
-        integer_number = (float_number * 10 + 0.5f) / 10;
+        integer_number = float_number + 0.5f;
         dot_index = DL_DIGIT_INDEX_4;
     } else if (float_number >= 100) {
-        integer_number = (float_number * 100 + 0.5f) / 10;
+        integer_number = (float_number + 0.05f) * 10;
         dot_index = DL_DIGIT_INDEX_3;
     } else if (float_number >= 10) {
-        integer_number = (float_number * 1000 + 0.5f) / 10;
+        integer_number = (float_number + 0.005f) * 100;
         dot_index = DL_DIGIT_INDEX_2;
     } else {
-        integer_number = (float_number * 10000 + 0.5f) / 10;
+        integer_number = (float_number + 0.0005f) * 1000;
         dot_index = DL_DIGIT_INDEX_1;
     }
 
