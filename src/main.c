@@ -10,7 +10,7 @@ main() {
     adc_init(ADC_ANALOGUE_CHANNEL_6);
 
     display_t display = create_display();
-    const button_t button = btn_create(&DDRD, &PORTD, &PIND, 0);
+    const button_t button = btn_create(&DDRD, &PORTD, &PIND, 2);
 
     while (true) {
         if (btn_is_pressed(&button)) {
