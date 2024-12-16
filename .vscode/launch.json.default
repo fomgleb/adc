@@ -2,13 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run atmega328p in simavr on linux for debugging",
+            "name": "SIMAVR_LINUX RUN ATMEGA328P PORT:1234",
             "type": "cppdbg",
             "request": "launch",
             "program": "/usr/local/bin/simavr",
             "args": [
                 "--freq",
-                "1000000",
+                "16000000",
                 "--mcu",
                 "atmega328p",
                 "--gdb",
@@ -22,29 +22,29 @@
             "cwd": "${workspaceFolder}",
             "stopAtEntry": false,
             "externalConsole": false,
-            "preLaunchTask": "Build with cmake for debugging"
+            "preLaunchTask": "CMAKE BUILD DEBUG"
         },
         {
-            "name": "avr-gdb on port 1234 on linux",
+            "name": "AVR-GDB_LINUX DEBUG PORT:1234",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/src/adc.elf",
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/avr-gdb",
             "miDebuggerServerAddress": "localhost:1234",
-            "stopAtEntry": true,
+            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false,
-            "preLaunchTask": "Build with cmake for debugging",
+            "preLaunchTask": "CMAKE BUILD DEBUG",
         }
     ],
     "compounds": [
         {
-            "name": "Run and Debug atmega328p simavr on linux",
+            "name": "SIMAVR_LINUX DEBUG ATMEGA328P",
             "configurations": [
-                "Run atmega328p in simavr on linux for debugging",
-                "avr-gdb on port 1234 on linux"
+                "SIMAVR_LINUX RUN ATMEGA328P PORT:1234",
+                "AVR-GDB_LINUX DEBUG PORT:1234"
             ]
         }
     ]
